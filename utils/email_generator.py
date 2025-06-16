@@ -10,8 +10,10 @@ import streamlit as st
 from dotenv import load_dotenv
 load_dotenv()
 
-
-chroma_client = chromadb.PersistentClient(path="./chroma_db", settings=Settings(anonymized_telemetry=False))
+chroma_client = chromadb.PersistentClient(
+    path="/mount/tmp/chroma_db",  
+    settings=Settings(anonymized_telemetry=False)
+)
 
 llm = ChatGroq(
     temperature=0,
