@@ -4,10 +4,14 @@ import chromadb
 import pandas as pd
 import uuid
 from utils.job_extractor import extract_job_info
+import os
+import streamlit as st
+from dotenv import load_dotenv
+load_dotenv()
 
 llm = ChatGroq(
     temperature=0,
-    groq_api_key="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",
+    groq_api_key=os.getenv("GROQ_API_KEY") or st.secrets["GROQ_API_KEY"],
     model_name="llama3-70b-8192"
 )
 
