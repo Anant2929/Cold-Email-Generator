@@ -5,4 +5,8 @@ langchain-community
 chromadb
 pandas
 opentelemetry-exporter-otlp
+<<<<<<< HEAD
 protobuf==3.20.3
+=======
+protobuf==3.20.3
+>>>>>>> 979872e774c5bf7ecd91f858e8a300fb72f61065
