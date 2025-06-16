@@ -1,7 +1,6 @@
 from langchain_core.prompts import ChatPromptTemplate, HumanMessagePromptTemplate
 from langchain_groq import ChatGroq
 import chromadb
-from chromadb.config import Settings
 import pandas as pd
 import uuid
 from utils.job_extractor import extract_job_info
@@ -10,10 +9,7 @@ import streamlit as st
 from dotenv import load_dotenv
 load_dotenv()
 
-chroma_client = chromadb.PersistentClient(
-    path="/mount/tmp/chroma_db",  
-    settings=Settings(anonymized_telemetry=False)
-)
+chroma_client = chromadb.Client()
 
 llm = ChatGroq(
     temperature=0,
