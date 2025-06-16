@@ -3,12 +3,13 @@ from langchain_community.document_loaders import WebBaseLoader
 from langchain_core.prompts import ChatPromptTemplate, HumanMessagePromptTemplate
 import json
 import os
+import streamlit as st
 from dotenv import load_dotenv
 load_dotenv()
 
 llm = ChatGroq(
     temperature=0,
-    groq_api_key=os.getenv("GROQ_API_KEY"),
+    groq_api_key=os.getenv("GROQ_API_KEY") or st.secrets["GROQ_API_KEY"],
     model_name="llama3-70b-8192"
 )
 
